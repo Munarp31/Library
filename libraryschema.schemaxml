@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">library</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="book_author" view="colnames">
+<left>378</left>
+<top>78</top>
+<width>109</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `book_author` (
+  `collectionid` int(9) NOT NULL AUTO_INCREMENT,
+  `bookid` int(9) NOT NULL,
+  `authorid` int(9) NOT NULL,
+  PRIMARY KEY (`collectionid`),
+  KEY `book_author_ibfk_1` (`bookid`),
+  KEY `book_author_ibfk_2` (`authorid`),
+  CONSTRAINT `book_author_ibfk_1` FOREIGN KEY (`bookid`) REFERENCES `books` (`bookid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `book_author_ibfk_2` FOREIGN KEY (`authorid`) REFERENCES `authors` (`authorid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="books" view="colnames">
+<left>642</left>
+<top>228</top>
+<width>93</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `books` (
+  `bookid` int(9) NOT NULL AUTO_INCREMENT,
+  `title` char(255) NOT NULL,
+  `authorid` int(9) NOT NULL,
+  PRIMARY KEY (`bookid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="authors" view="colnames">
+<left>156</left>
+<top>240</top>
+<width>93</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `authors` (
+  `authorid` int(9) NOT NULL AUTO_INCREMENT,
+  `name` char(255) NOT NULL,
+  PRIMARY KEY (`authorid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
