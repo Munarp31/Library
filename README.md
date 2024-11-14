@@ -1,2 +1,2 @@
 # **Library API Documentation**
-This is an API Documentation written by Pauline A. Munar
+This Library Management System API allows users to manage their library collection efficiently. Built with PHP, the Slim Framework, and Composer, it provides RESTful endpoints for user registration, authentication, and CRUD (Create, Read, Update, Delete) operations on authors, books, and author-book relationships. The system leverages JSON Web Tokens (JWT) to ensure secure access and interactions within the application.
