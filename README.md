@@ -39,14 +39,14 @@ This Library API Documentation allows users to manage their library collection e
 - **Endpoint**: POST /user/register
 - **Description**: Register a new user.
 - **Request Body**:
-```
+```json
 {
     "username": "exampleUser",
     "password": "securePassword"
 }
 ```
 - **Response**:
-```
+```json
 {
     "status": "success",
     "data": null
@@ -56,14 +56,14 @@ This Library API Documentation allows users to manage their library collection e
 - **Endpoint**: POST /user/auth
 - **Description**: Authenticate a user and generate a JWT token.
 - **Request Body**:
-```
+```json
 {
     "username": "exampleUser",
     "password": "securePassword"
 }
 ```
 - **Response**:
-```
+```json
 {
     "status": "success",
     "token": "jwt_token"
@@ -73,11 +73,11 @@ This Library API Documentation allows users to manage their library collection e
 - **Endpoint**: GET /user/display
 - **Description**: Fetch a list of registered users.
 - **Headers**:
-```
-Authorization: Bearer <jwt_token>
+```json
+"Authorization": "Bearer <jwt_token>"
 ```
 - **Response**:
-```
+```json
 {
     "status": "success",
     "data": [
@@ -92,7 +92,7 @@ Authorization: Bearer <jwt_token>
 - **Endpoint**: PUT /user/update
 - **Description**: Update a user's information.
 - **Request Body**:
-```
+```json
 {
     "token": "jwt_token",
     "userid": 1,
@@ -101,7 +101,7 @@ Authorization: Bearer <jwt_token>
 }
 ```
 - **Response**:
-```
+```json
 {
     "status": "success",
     "token": "new_jwt_token",
@@ -112,14 +112,14 @@ Authorization: Bearer <jwt_token>
 - **Endpoint**: DELETE /user/delete
 - **Description**: Delete a user's account.
 - **Request Body**:
-```
+```json
 {
     "token": "jwt_token",
     "userid": 1
 }
 ```
 - **Response**:
-```
+```json
 {
     "status": "success",
     "data": null
