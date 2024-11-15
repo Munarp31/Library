@@ -33,8 +33,8 @@ This Library API Documentation allows users to manage their library collection e
    git clone https://github.com/Munarp31/Library.git
    cd Library
 
-## API Endpoints
-# User Endpoints
+# API Endpoints
+## User Endpoints
 **Register User**
 - **Endpoint**: POST /user/register
 - **Description**: Register a new user.
@@ -52,7 +52,7 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-# Authenticate User
+## Authenticate User
 - **Endpoint**: POST /user/auth
 - **Description**: Authenticate a user and generate a JWT token.
 - **Request Body**:
@@ -69,7 +69,7 @@ This Library API Documentation allows users to manage their library collection e
     "token": "jwt_token"
 }
 ```
-# Display Users
+## Display Users
 - **Endpoint**: GET /user/display
 - **Description**: Fetch a list of registered users.
 - **Headers**:
@@ -88,7 +88,7 @@ Authorization: Bearer <jwt_token>
     ]
 }
 ```
-# Update User
+## Update User
 - **Endpoint**: PUT /user/update
 - **Description**: Update a user's information.
 - **Request Body**:
@@ -108,7 +108,7 @@ Authorization: Bearer <jwt_token>
     "data": null
 }
 ```
-# Delete User
+## Delete User
 - **Endpoint**: DELETE /user/delete
 - **Description**: Delete a user's account.
 - **Request Body**:
@@ -125,7 +125,7 @@ Authorization: Bearer <jwt_token>
     "data": null
 }
 ```
-# Error Handling
+## Error Handling
 The system uses standard HTTP status codes and JSON error messages to handle errors, ensuring clear communication between the API and its users. Some typical error scenarios include:
 
 - **401 Unauthorized**: Missing or invalid JWT token.
