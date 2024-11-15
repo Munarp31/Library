@@ -10,6 +10,8 @@ This Library API Documentation allows users to manage their library collection e
   - [User Endpoints](#user-endpoints)
   - [Book Endpoints](#book-endpoints)
   - [Author Endpoints](#author-endpoints)
+  -[Book Endpoints](#book-endpoints)
+  -[Book Author Endpoints](#book-author-endpoints)
 - [Error Handling](#error-handling)
 
 ## Features
