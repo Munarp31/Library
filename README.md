@@ -125,6 +125,86 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
+# Author Endpoints
+
+## Register Author
+- **Endpoint**: POST /author/register
+- **Description**: Register a new author.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "name": "Author Name"
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
+
+### Display Authors
+- **Endpoint**: GET /author/display
+- **Description**: Fetch a list of authors.
+- **Headers**:
+```json
+"Authorization": "Bearer <jwt_token>"
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": [
+        {
+            "authorid": 1,
+            "name": "Author Name"
+        }
+    ]
+}
+```
+
+## Update Author
+- **Endpoint**: PUT /author/update
+- **Description**: Update an author's information.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "authorid": 1,
+    "name": "Updated Author Name"
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
+
+## Delete Author
+- **Endpoint**: DELETE /author/delete
+- **Description**: Delete an author from the system.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "authorid": 1
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "data": null
+}
+```
+
 ## Error Handling
 The system uses standard HTTP status codes and JSON error messages to handle errors, ensuring clear communication between the API and its users. Some typical error scenarios include:
 
