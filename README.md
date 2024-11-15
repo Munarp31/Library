@@ -201,7 +201,7 @@ This Library API Documentation allows users to manage their library collection e
 }
 ```
 
-# Book Endpoints
+## Book Endpoints
 **Register Book**
 - **Endpoint**: POST /book/register
 - **Description**: Register a new book in the library.
@@ -280,7 +280,7 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-# Book Author Endpoints
+## Book Author Endpoints
 
 **Register Book-Author**
 - **Endpoint**: POST /book_author/register
@@ -362,7 +362,7 @@ This Library API Documentation allows users to manage their library collection e
 ```
 Here are the error handling scenarios based on the previous `book_author` endpoints:
 
-# Error Handling
+## Error Handling
 
 The system uses standard HTTP status codes and JSON error messages to handle errors, ensuring clear communication between the API and its users. Some typical error scenarios include:
 
