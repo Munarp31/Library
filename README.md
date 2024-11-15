@@ -125,8 +125,8 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-## Author Endpoints
 
+## Author Endpoints
 **Register Author**
 - **Endpoint**: POST /author/register
 - **Description**: Register a new author.
@@ -145,7 +145,6 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-
 **Display Authors**
 - **Endpoint**: GET /author/display
 - **Description**: Fetch a list of authors.
@@ -166,7 +165,6 @@ This Library API Documentation allows users to manage their library collection e
     ]
 }
 ```
-
 **Update Author**
 - **Endpoint**: PUT /author/update
 - **Description**: Update an author's information.
@@ -186,7 +184,6 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-
 **Delete Author**
 - **Endpoint**: DELETE /author/delete
 - **Description**: Delete an author from the system.
@@ -204,6 +201,7 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
+
 # Book Endpoints
 **Register Book**
 - **Endpoint**: POST /book/register
@@ -224,7 +222,6 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-
 **Display Books**
 - **Endpoint**: GET /book/display
 - **Description**: Fetch a list of books in the library.
@@ -246,7 +243,6 @@ This Library API Documentation allows users to manage their library collection e
     ]
 }
 ```
-
 **Update Book**
 - **Endpoint**: PUT /book/update
 - **Description**: Update an existing book's information.
@@ -267,7 +263,6 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-
 **Delete Book**
 - **Endpoint**: DELETE /book/delete
 - **Description**: Delete a book from the library.
@@ -286,7 +281,7 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-## Book Author Endpoints
+# Book Author Endpoints
 
 **Register Book-Author**
 - **Endpoint**: POST /book_author/register
@@ -307,7 +302,6 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-
 **Display Book-Author**
 - **Endpoint**: GET /book_author/display
 - **Description**: Fetch a list of all book-author relationships.
@@ -329,7 +323,6 @@ This Library API Documentation allows users to manage their library collection e
     ]
 }
 ```
-
 **Update Book-Author**
 - **Endpoint**: PUT /book_author/update
 - **Description**: Update a book-author relationship based on the collection ID.
@@ -350,8 +343,7 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-
-**Delete Book-Author Relationship**
+**Delete Book-Author**
 - **Endpoint**: DELETE /book_author/delete
 - **Description**: Delete a book-author relationship based on the collection ID.
 - **Request Body**:
@@ -361,7 +353,7 @@ This Library API Documentation allows users to manage their library collection e
     "collectionid": 1
 }
 ```
-- **Response**:
+- **Response**:   
 ```json
 {
     "status": "success",
@@ -369,10 +361,92 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-**Error Handling**
+Here are the error handling scenarios based on the previous `book_author` endpoints:
+
+# Error Handling
+
 The system uses standard HTTP status codes and JSON error messages to handle errors, ensuring clear communication between the API and its users. Some typical error scenarios include:
 
-- **401 Unauthorized**: Missing or invalid JWT token.
-- **400 Bad Request**: Incorrect request payload.
-- **403 Forbidden**: Unauthorized action.
-- **500 Internal Server Error**: Database connection or query issues.
+**401 Unauthorized**
+- **Scenario**: Missing or invalid JWT token.
+- **Example**:
+  - When a request does not include a valid token in the authorization header or the token is expired/invalid.
+  
+**Response**:
+```json
+{
+    "status": "fail",
+    "data": {
+        "title": "Invalid or expired token"
+    }
+}
+```
+- **HTTP Status**: 401 Unauthorized
+
+**400 Bad Request**
+- **Scenario**: Incorrect request payload.
+- **Example**:
+  - Missing required fields such as `token`, `bookid`, or `authorid` in the request body.
+  
+**Response**:
+```json
+{
+    "status": "fail",
+    "data": {
+        "title": "Token missing in payload"
+    }
+}
+```
+- **HTTP Status**: 400 Bad Request
+
+```json
+{
+    "status": "fail",
+    "data": {
+        "title": "Book ID or Author ID missing in payload"
+    }
+}
+```
+- **HTTP Status**: 400 Bad Request
+
+**403 Forbidden**
+- **Scenario**: Unauthorized action (e.g., user trying to perform an action without permission).
+- **Example**:
+  - When a user tries to access or modify data they don't have permission for.
+
+**Response**:
+```json
+{
+    "status": "fail",
+    "data": {
+        "title": "Unauthorized action"
+    }
+}
+```
+- **HTTP Status**: 403 Forbidden
+
+**500 Internal Server Error**
+- **Scenario**: Database connection or query issues.
+- **Example**:
+  - When there is a problem connecting to the database or executing the SQL query.
+
+**Response**:
+```json
+{
+    "status": "fail",
+    "data": {
+        "title": "Database connection error"
+    }
+}
+```
+- **HTTP Status**: 500 Internal Server Error
+
+```json
+{
+    "status": "fail",
+    "data": {
+        "title": "SQL Query error"
+    }
+}
+```
+- **HTTP Status**: 500 Internal Server Error
