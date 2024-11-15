@@ -15,7 +15,7 @@ This Library API Documentation allows users to manage their library collection e
 ## Features
 
 - **User Authentication**: Register and authenticate users using JWT.
-- **CRUD Operations**: Create, Display, UPDATE, and DELETE users, authors, books, and book_authors.
+- **CRUD Operations**: CREATE, DISPLAY, UPDATE, and DELETE users, authors, books, and book_authors.
 - **Secure Access**: JWT-based authorization for secure interactions.
 
 ## Tech Stack
@@ -251,7 +251,7 @@ This Library API Documentation allows users to manage their library collection e
     "token": "jwt_token",
     "bookid": 1,
     "title": "Updated Book Title",
-    "authorid": 2
+    "authorid": 1
 }
 ```
 - **Response**:
@@ -281,7 +281,6 @@ This Library API Documentation allows users to manage their library collection e
 }
 ```
 ## Book Author Endpoints
-
 **Register Book-Author**
 - **Endpoint**: POST /book_author/register
 - **Description**: Register a relationship between a book and an author.
@@ -289,8 +288,9 @@ This Library API Documentation allows users to manage their library collection e
 ```json
 {
     "token": "jwt_token",
+    "title": "book_title",
     "bookid": 1,
-    "authorid": 2
+    "authorid": 1
 }
 ```
 - **Response**:
@@ -317,7 +317,7 @@ This Library API Documentation allows users to manage their library collection e
         {
             "collectionid": 1,
             "bookid": 1,
-            "authorid": 2
+            "authorid": 1
         }
     ]
 }
@@ -329,9 +329,10 @@ This Library API Documentation allows users to manage their library collection e
 ```json
 {
     "token": "jwt_token",
-    "collectionid": 1,
-    "bookid": 2,
-    "authorid": 3
+    "bookid": 1,
+    "title": "book_title",
+    "authorid": 1,
+    "collectionid":1
 }
 ```
 - **Response**:
@@ -349,6 +350,7 @@ This Library API Documentation allows users to manage their library collection e
 ```json
 {
     "token": "jwt_token",
+    "bookid": 1,
     "collectionid": 1
 }
 ```
