@@ -39,52 +39,45 @@ This Library API Documentation allows users to manage their library collection e
 - **Endpoint**: POST /user/register
 - **Description**: Register a new user.
 - **Request Body**:
-
-json
-Copy code
+```
 {
     "username": "exampleUser",
     "password": "securePassword"
 }
+```
 - **Response**:
-
-json
-Copy code
+```
 {
     "status": "success",
     "data": null
 }
+```
 # Authenticate User
 - **Endpoint**: POST /user/auth
 - **Description**: Authenticate a user and generate a JWT token.
 - **Request Body**:
-
-json
-Copy code
+```
 {
     "username": "exampleUser",
     "password": "securePassword"
 }
+```
 - **Response**:
-
-json
-Copy code
+```
 {
     "status": "success",
     "token": "jwt_token"
 }
+```
 # Display Users
 - **Endpoint**: GET /user/display
 - **Description**: Fetch a list of registered users.
 - **Headers**:
-
-make file
-Copy code
+```
 Authorization: Bearer <jwt_token>
-Response:
-
-json
-Copy code
+```
+- **Response**:
+```
 {
     "status": "success",
     "data": [
@@ -94,47 +87,44 @@ Copy code
         }
     ]
 }
+```
 # Update User
 - **Endpoint**: PUT /user/update
 - **Description**: Update a user's information.
 - **Request Body**:
-
-json
-Copy code
+```
 {
     "token": "jwt_token",
     "userid": 1,
     "username": "newUsername",
     "password": "newPassword"
 }
+```
 - **Response**:
-
-json
-Copy code
+```
 {
     "status": "success",
     "token": "new_jwt_token",
     "data": null
 }
+```
 # Delete User
 - **Endpoint**: DELETE /user/delete
 - **Description**: Delete a user's account.
 - **Request Body**:
-
-json
-Copy code
+```
 {
     "token": "jwt_token",
     "userid": 1
 }
+```
 - **Response**:
-
-json
-Copy code
+```
 {
     "status": "success",
     "data": null
 }
+```
 # Error Handling
 The system uses standard HTTP status codes and JSON error messages to handle errors, ensuring clear communication between the API and its users. Some typical error scenarios include:
 
