@@ -3,13 +3,27 @@ This Library API Documentation allows users to manage their library collection e
 
 ## Table of Contents
 
-1. [Library System API Documentation](#library-system-api-documentation)
-2. [Base URL](#base-url)
-3. [Endpoints](#endpoints)
-   - [POST /user/auth](#post-userauth)
-   - [GET /user/display](#get-userdisplay)
-   - [PUT /user/update](#put-userupdate)
-   - [DELETE /user/delete](#delete-userdelete)
-4. [Authentication and Token Management](#authentication-and-token-management)
-5. [Error Codes](#error-codes)
-6. [Example Requests and Responses](#example-requests-and-responses)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+  - [User Endpoints](#user-endpoints)
+  - [Book Endpoints](#book-endpoints)
+  - [Author Endpoints](#author-endpoints)
+- [Error Handling](#error-handling)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **User Authentication**: Register and authenticate users using JWT.
+- **CRUD Operations**: Create, read, update, and delete authors, books, and relationships.
+- **Secure Access**: JWT-based authorization for secure interactions.
+
+## Tech Stack
+
+- **Backend**: PHP, Slim Framework
+- **Database**: MySQL
+- **Authentication**: JSON Web Tokens (JWT)
+- **Dependencies**: Composer
