@@ -52,7 +52,7 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-## Authenticate User
+**Authenticate User**
 - **Endpoint**: POST /user/auth
 - **Description**: Authenticate a user and generate a JWT token.
 - **Request Body**:
@@ -69,7 +69,7 @@ This Library API Documentation allows users to manage their library collection e
     "token": "jwt_token"
 }
 ```
-## Display Users
+**Display Users**
 - **Endpoint**: GET /user/display
 - **Description**: Fetch a list of registered users.
 - **Headers**:
@@ -88,7 +88,7 @@ This Library API Documentation allows users to manage their library collection e
     ]
 }
 ```
-## Update User
+**Update User**
 - **Endpoint**: PUT /user/update
 - **Description**: Update a user's information.
 - **Request Body**:
@@ -108,7 +108,7 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-## Delete User
+**Delete User**
 - **Endpoint**: DELETE /user/delete
 - **Description**: Delete a user's account.
 - **Request Body**:
@@ -125,9 +125,9 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
-# Author Endpoints
+## Author Endpoints
 
-## Register Author
+**Register Author**
 - **Endpoint**: POST /author/register
 - **Description**: Register a new author.
 - **Request Body**:
@@ -146,7 +146,7 @@ This Library API Documentation allows users to manage their library collection e
 }
 ```
 
-### Display Authors
+**Display Authors**
 - **Endpoint**: GET /author/display
 - **Description**: Fetch a list of authors.
 - **Headers**:
@@ -167,7 +167,7 @@ This Library API Documentation allows users to manage their library collection e
 }
 ```
 
-## Update Author
+**Update Author**
 - **Endpoint**: PUT /author/update
 - **Description**: Update an author's information.
 - **Request Body**:
@@ -187,7 +187,7 @@ This Library API Documentation allows users to manage their library collection e
 }
 ```
 
-## Delete Author
+**Delete Author**
 - **Endpoint**: DELETE /author/delete
 - **Description**: Delete an author from the system.
 - **Request Body**:
@@ -204,8 +204,172 @@ This Library API Documentation allows users to manage their library collection e
     "data": null
 }
 ```
+# Book Endpoints
+**Register Book**
+- **Endpoint**: POST /book/register
+- **Description**: Register a new book in the library.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "title": "Book Title",
+    "authorid": 1
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
 
-## Error Handling
+**Display Books**
+- **Endpoint**: GET /book/display
+- **Description**: Fetch a list of books in the library.
+- **Headers**:
+```json
+"Authorization": "Bearer <jwt_token>"
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": [
+        {
+            "bookid": 1,
+            "title": "Book Title",
+            "authorid": 1
+        }
+    ]
+}
+```
+
+**Update Book**
+- **Endpoint**: PUT /book/update
+- **Description**: Update an existing book's information.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "bookid": 1,
+    "title": "Updated Book Title",
+    "authorid": 2
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
+
+**Delete Book**
+- **Endpoint**: DELETE /book/delete
+- **Description**: Delete a book from the library.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "bookid": 1
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
+## Book Author Endpoints
+
+**Register Book-Author**
+- **Endpoint**: POST /book_author/register
+- **Description**: Register a relationship between a book and an author.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "bookid": 1,
+    "authorid": 2
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
+
+**Display Book-Author**
+- **Endpoint**: GET /book_author/display
+- **Description**: Fetch a list of all book-author relationships.
+- **Headers**:
+```json
+"Authorization": "Bearer <jwt_token>"
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": [
+        {
+            "collectionid": 1,
+            "bookid": 1,
+            "authorid": 2
+        }
+    ]
+}
+```
+
+**Update Book-Author**
+- **Endpoint**: PUT /book_author/update
+- **Description**: Update a book-author relationship based on the collection ID.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "collectionid": 1,
+    "bookid": 2,
+    "authorid": 3
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
+
+**Delete Book-Author Relationship**
+- **Endpoint**: DELETE /book_author/delete
+- **Description**: Delete a book-author relationship based on the collection ID.
+- **Request Body**:
+```json
+{
+    "token": "jwt_token",
+    "collectionid": 1
+}
+```
+- **Response**:
+```json
+{
+    "status": "success",
+    "token": "new_jwt_token",
+    "data": null
+}
+```
+**Error Handling**
 The system uses standard HTTP status codes and JSON error messages to handle errors, ensuring clear communication between the API and its users. Some typical error scenarios include:
 
 - **401 Unauthorized**: Missing or invalid JWT token.
